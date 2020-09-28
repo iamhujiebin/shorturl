@@ -19,14 +19,19 @@ type (
 )
 
 service shorturl-api {
-	@server(
-		handler: ShortenHandler
-	)
-	get /shorten(shortenReq) returns(shortenResp)
+    @server(
+        handler: ShortenHandler
+    )
+    get /shorten (shortenReq) returns (shortenResp)
 
-	@server(
-		handler: ExpandHandler
-	)
-	get /expand(expandReq) returns(expandResp)
+    @server(
+        handler: ExpandHandler
+    )
+    get /expand (expandReq) returns (expandResp)
+
+    @server(
+        handler: ExpandHandler2
+    )
+    get /expand2 (expandReq) returns (expandResp)
 }
 

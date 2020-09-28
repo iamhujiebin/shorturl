@@ -21,5 +21,10 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			Path:    "/expand",
 			Handler: expandHandler(serverCtx),
 		},
+		{
+			Method:  http.MethodGet,
+			Path:    "/expand2",
+			Handler: expandHandler2Handler(serverCtx),
+		},
 	})
 }
