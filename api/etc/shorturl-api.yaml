@@ -11,3 +11,7 @@ Transform:
 Log:
   LogMode: console
   Path: ./logs
+
+JwtAuth:
+  AccessSecret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  AccessExpire: 86400

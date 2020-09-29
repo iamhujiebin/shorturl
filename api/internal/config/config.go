@@ -12,4 +12,8 @@ type Config struct {
 		LogMode string
 		Path    string
 	}
+	JwtAuth struct {
+		AccessSecret string
+		AccessExpire int64
+	}
 }

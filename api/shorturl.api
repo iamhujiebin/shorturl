@@ -18,6 +18,16 @@ type (
 	}
 )
 
+type (
+	JwtTokenRequest struct{}
+
+	JwtTokenResponse struct {
+		AccessToken  string `json:"access_token"`
+		AccessExpire int64  `json:"access_expire"`
+		RefreshAfter int64  `json:"refresh_after"` // 建议客户端刷新token的绝对时间
+	}
+)
+
 service shorturl-api {
     @server(
         handler: ShortenHandler
@@ -29,6 +39,16 @@ service shorturl-api {
     )
     get /expand (expandReq) returns (expandResp)
 
+    @server(
+        handler: JwtHandler
+    )
+    post /user/token (JwtTokenRequest) returns (JwtTokenResponse)
+}
+
+@server(
+    jwt: JwtAuth
+)
+service shorturl-api {
     @server(
         handler: ExpandHandler2
     )

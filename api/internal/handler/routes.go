@@ -22,9 +22,17 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			Handler: expandHandler(serverCtx),
 		},
 		{
+			Method:  http.MethodPost,
+			Path:    "/user/token",
+			Handler: jwtHandler(serverCtx),
+		},
+	})
+
+	engine.AddRoutes([]rest.Route{
+		{
 			Method:  http.MethodGet,
 			Path:    "/expand2",
 			Handler: expandHandler2Handler(serverCtx),
 		},
-	})
+	}, rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret))
 }
