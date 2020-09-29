@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-
+	"github.com/tal-tech/go-zero/core/logx"
 	"shorturl/api/internal/config"
 	"shorturl/api/internal/handler"
 	"shorturl/api/internal/svc"
@@ -19,6 +19,12 @@ func main() {
 
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
+
+	logConf := logx.LogConf{
+		Mode: c.Log.LogMode,
+		Path: c.Log.Path,
+	}
+	logx.MustSetup(logConf)
 
 	ctx := svc.NewServiceContext(c)
 	server := rest.MustNewServer(c.RestConf)
