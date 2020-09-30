@@ -3,22 +3,31 @@ syntax = "proto3";
 package transform;
 
 message expandReq {
-    string shorten = 1;
+  string shorten = 1;
 }
 
 message expandResp {
-    string url = 1;
+  string url = 1;
+}
+
+message expand2Req {
+  string shorten = 1;
+}
+
+message expand2Resp {
+  string url = 1;
 }
 
 message shortenReq {
-    string url = 1;
+  string url = 1;
 }
 
 message shortenResp {
-    string shorten = 1;
+  string shorten = 1;
 }
 
 service transformer {
-    rpc expand(expandReq) returns(expandResp);
-    rpc shorten(shortenReq) returns(shortenResp);
+  rpc expand(expandReq) returns(expandResp);
+  rpc expand2(expand2Req) returns(expand2Resp);
+  rpc shorten(shortenReq) returns(shortenResp);
 }

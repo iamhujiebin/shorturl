@@ -17,6 +17,7 @@ import (
 type (
 	Transformer interface {
 		Expand(ctx context.Context, in *ExpandReq) (*ExpandResp, error)
+		Expand2(ctx context.Context, in *Expand2Req) (*Expand2Resp, error)
 		Shorten(ctx context.Context, in *ShortenReq) (*ShortenResp, error)
 	}
 
@@ -50,6 +51,38 @@ func (m *defaultTransformer) Expand(ctx context.Context, in *ExpandReq) (*Expand
 	}
 
 	var ret ExpandResp
+	bts, err = jsonx.Marshal(resp)
+	if err != nil {
+		return nil, errJsonConvert
+	}
+
+	err = jsonx.Unmarshal(bts, &ret)
+	if err != nil {
+		return nil, errJsonConvert
+	}
+
+	return &ret, nil
+}
+
+func (m *defaultTransformer) Expand2(ctx context.Context, in *Expand2Req) (*Expand2Resp, error) {
+	var request transform.Expand2Req
+	bts, err := jsonx.Marshal(in)
+	if err != nil {
+		return nil, errJsonConvert
+	}
+
+	err = jsonx.Unmarshal(bts, &request)
+	if err != nil {
+		return nil, errJsonConvert
+	}
+
+	client := transform.NewTransformerClient(m.cli.Conn())
+	resp, err := client.Expand2(ctx, &request)
+	if err != nil {
+		return nil, err
+	}
+
+	var ret Expand2Resp
 	bts, err = jsonx.Marshal(resp)
 	if err != nil {
 		return nil, errJsonConvert

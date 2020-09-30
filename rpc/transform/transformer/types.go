@@ -8,6 +8,14 @@ import "errors"
 var errJsonConvert = errors.New("json convert error")
 
 type (
+	Expand2Req struct {
+		Shorten string `json:"shorten,omitempty"`
+	}
+
+	Expand2Resp struct {
+		Url string `json:"url,omitempty"`
+	}
+
 	ExpandReq struct {
 		Shorten string `json:"shorten,omitempty"`
 	}

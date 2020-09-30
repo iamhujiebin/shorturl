@@ -6,6 +6,7 @@ import (
 	"github.com/tal-tech/go-zero/core/mr"
 	"shorturl/api/internal/svc"
 	"shorturl/api/internal/types"
+	"shorturl/rpc/transform/transformer"
 	"strconv"
 
 	"github.com/tal-tech/go-zero/core/logx"
@@ -69,8 +70,13 @@ func (l *ExpandHandler2Logic) ExpandHandler2(req types.ExpandReq) (*types.Expand
 	} else {
 		logx.Infof("something right:%+v", rsp)
 	}
-
-	return &types.ExpandResp{}, nil
+	resp, err := l.svcCtx.Transformer.Expand2(l.ctx, &transformer.Expand2Req{Shorten: req.Shorten})
+	if err != nil {
+		return nil, err
+	}
+	return &types.ExpandResp{
+		Url: resp.Url,
+	}, nil
 }
 
 func check(i int) error {

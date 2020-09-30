@@ -26,6 +26,11 @@ func (s *TransformerServer) Expand(ctx context.Context, in *transform.ExpandReq)
 	return l.Expand(in)
 }
 
+func (s *TransformerServer) Expand2(ctx context.Context, in *transform.Expand2Req) (*transform.Expand2Resp, error) {
+	l := logic.NewExpand2Logic(ctx, s.svcCtx)
+	return l.Expand2(in)
+}
+
 func (s *TransformerServer) Shorten(ctx context.Context, in *transform.ShortenReq) (*transform.ShortenResp, error) {
 	l := logic.NewShortenLogic(ctx, s.svcCtx)
 	return l.Shorten(in)

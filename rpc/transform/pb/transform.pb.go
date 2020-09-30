@@ -123,6 +123,100 @@ func (x *ExpandResp) GetUrl() string {
 	return ""
 }
 
+type Expand2Req struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Shorten string `protobuf:"bytes,1,opt,name=shorten,proto3" json:"shorten,omitempty"`
+}
+
+func (x *Expand2Req) Reset() {
+	*x = Expand2Req{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_transform_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Expand2Req) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Expand2Req) ProtoMessage() {}
+
+func (x *Expand2Req) ProtoReflect() protoreflect.Message {
+	mi := &file_transform_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Expand2Req.ProtoReflect.Descriptor instead.
+func (*Expand2Req) Descriptor() ([]byte, []int) {
+	return file_transform_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Expand2Req) GetShorten() string {
+	if x != nil {
+		return x.Shorten
+	}
+	return ""
+}
+
+type Expand2Resp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Url string `protobuf:"bytes,1,opt,name=url,proto3" json:"url,omitempty"`
+}
+
+func (x *Expand2Resp) Reset() {
+	*x = Expand2Resp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_transform_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Expand2Resp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Expand2Resp) ProtoMessage() {}
+
+func (x *Expand2Resp) ProtoReflect() protoreflect.Message {
+	mi := &file_transform_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Expand2Resp.ProtoReflect.Descriptor instead.
+func (*Expand2Resp) Descriptor() ([]byte, []int) {
+	return file_transform_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *Expand2Resp) GetUrl() string {
+	if x != nil {
+		return x.Url
+	}
+	return ""
+}
+
 type ShortenReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -134,7 +228,7 @@ type ShortenReq struct {
 func (x *ShortenReq) Reset() {
 	*x = ShortenReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_transform_proto_msgTypes[2]
+		mi := &file_transform_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -147,7 +241,7 @@ func (x *ShortenReq) String() string {
 func (*ShortenReq) ProtoMessage() {}
 
 func (x *ShortenReq) ProtoReflect() protoreflect.Message {
-	mi := &file_transform_proto_msgTypes[2]
+	mi := &file_transform_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -160,7 +254,7 @@ func (x *ShortenReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShortenReq.ProtoReflect.Descriptor instead.
 func (*ShortenReq) Descriptor() ([]byte, []int) {
-	return file_transform_proto_rawDescGZIP(), []int{2}
+	return file_transform_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ShortenReq) GetUrl() string {
@@ -181,7 +275,7 @@ type ShortenResp struct {
 func (x *ShortenResp) Reset() {
 	*x = ShortenResp{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_transform_proto_msgTypes[3]
+		mi := &file_transform_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -194,7 +288,7 @@ func (x *ShortenResp) String() string {
 func (*ShortenResp) ProtoMessage() {}
 
 func (x *ShortenResp) ProtoReflect() protoreflect.Message {
-	mi := &file_transform_proto_msgTypes[3]
+	mi := &file_transform_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -207,7 +301,7 @@ func (x *ShortenResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShortenResp.ProtoReflect.Descriptor instead.
 func (*ShortenResp) Descriptor() ([]byte, []int) {
-	return file_transform_proto_rawDescGZIP(), []int{3}
+	return file_transform_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ShortenResp) GetShorten() string {
@@ -226,20 +320,28 @@ var file_transform_proto_rawDesc = []byte{
 	0x72, 0x74, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x73, 0x68, 0x6f, 0x72,
 	0x74, 0x65, 0x6e, 0x22, 0x1e, 0x0a, 0x0a, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x52, 0x65, 0x73,
 	0x70, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03,
-	0x75, 0x72, 0x6c, 0x22, 0x1e, 0x0a, 0x0a, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x52, 0x65,
-	0x71, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03,
-	0x75, 0x72, 0x6c, 0x22, 0x27, 0x0a, 0x0b, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x52, 0x65,
-	0x73, 0x70, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x07, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x32, 0x7e, 0x0a, 0x0b,
-	0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72, 0x6d, 0x65, 0x72, 0x12, 0x35, 0x0a, 0x06, 0x65,
-	0x78, 0x70, 0x61, 0x6e, 0x64, 0x12, 0x14, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72,
-	0x6d, 0x2e, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x52, 0x65, 0x71, 0x1a, 0x15, 0x2e, 0x74, 0x72,
-	0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x52, 0x65,
-	0x73, 0x70, 0x12, 0x38, 0x0a, 0x07, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x12, 0x15, 0x2e,
-	0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65,
-	0x6e, 0x52, 0x65, 0x71, 0x1a, 0x16, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72, 0x6d,
-	0x2e, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x75, 0x72, 0x6c, 0x22, 0x26, 0x0a, 0x0a, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x32, 0x52, 0x65,
+	0x71, 0x12, 0x18, 0x0a, 0x07, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x07, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x22, 0x1f, 0x0a, 0x0b, 0x65,
+	0x78, 0x70, 0x61, 0x6e, 0x64, 0x32, 0x52, 0x65, 0x73, 0x70, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72,
+	0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x75, 0x72, 0x6c, 0x22, 0x1e, 0x0a, 0x0a,
+	0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72,
+	0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x75, 0x72, 0x6c, 0x22, 0x27, 0x0a, 0x0b,
+	0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x12, 0x18, 0x0a, 0x07, 0x73,
+	0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x73, 0x68,
+	0x6f, 0x72, 0x74, 0x65, 0x6e, 0x32, 0xb8, 0x01, 0x0a, 0x0b, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66,
+	0x6f, 0x72, 0x6d, 0x65, 0x72, 0x12, 0x35, 0x0a, 0x06, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x12,
+	0x14, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x65, 0x78, 0x70, 0x61,
+	0x6e, 0x64, 0x52, 0x65, 0x71, 0x1a, 0x15, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72,
+	0x6d, 0x2e, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70, 0x12, 0x38, 0x0a, 0x07,
+	0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x32, 0x12, 0x15, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66,
+	0x6f, 0x72, 0x6d, 0x2e, 0x65, 0x78, 0x70, 0x61, 0x6e, 0x64, 0x32, 0x52, 0x65, 0x71, 0x1a, 0x16,
+	0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x65, 0x78, 0x70, 0x61, 0x6e,
+	0x64, 0x32, 0x52, 0x65, 0x73, 0x70, 0x12, 0x38, 0x0a, 0x07, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65,
+	0x6e, 0x12, 0x15, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x73, 0x68,
+	0x6f, 0x72, 0x74, 0x65, 0x6e, 0x52, 0x65, 0x71, 0x1a, 0x16, 0x2e, 0x74, 0x72, 0x61, 0x6e, 0x73,
+	0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x73, 0x68, 0x6f, 0x72, 0x74, 0x65, 0x6e, 0x52, 0x65, 0x73, 0x70,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -254,20 +356,24 @@ func file_transform_proto_rawDescGZIP() []byte {
 	return file_transform_proto_rawDescData
 }
 
-var file_transform_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_transform_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_transform_proto_goTypes = []interface{}{
 	(*ExpandReq)(nil),   // 0: transform.expandReq
 	(*ExpandResp)(nil),  // 1: transform.expandResp
-	(*ShortenReq)(nil),  // 2: transform.shortenReq
-	(*ShortenResp)(nil), // 3: transform.shortenResp
+	(*Expand2Req)(nil),  // 2: transform.expand2Req
+	(*Expand2Resp)(nil), // 3: transform.expand2Resp
+	(*ShortenReq)(nil),  // 4: transform.shortenReq
+	(*ShortenResp)(nil), // 5: transform.shortenResp
 }
 var file_transform_proto_depIdxs = []int32{
 	0, // 0: transform.transformer.expand:input_type -> transform.expandReq
-	2, // 1: transform.transformer.shorten:input_type -> transform.shortenReq
-	1, // 2: transform.transformer.expand:output_type -> transform.expandResp
-	3, // 3: transform.transformer.shorten:output_type -> transform.shortenResp
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	2, // 1: transform.transformer.expand2:input_type -> transform.expand2Req
+	4, // 2: transform.transformer.shorten:input_type -> transform.shortenReq
+	1, // 3: transform.transformer.expand:output_type -> transform.expandResp
+	3, // 4: transform.transformer.expand2:output_type -> transform.expand2Resp
+	5, // 5: transform.transformer.shorten:output_type -> transform.shortenResp
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -304,7 +410,7 @@ func file_transform_proto_init() {
 			}
 		}
 		file_transform_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ShortenReq); i {
+			switch v := v.(*Expand2Req); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -316,6 +422,30 @@ func file_transform_proto_init() {
 			}
 		}
 		file_transform_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Expand2Resp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_transform_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ShortenReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_transform_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ShortenResp); i {
 			case 0:
 				return &v.state
@@ -334,7 +464,7 @@ func file_transform_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_transform_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -361,6 +491,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type TransformerClient interface {
 	Expand(ctx context.Context, in *ExpandReq, opts ...grpc.CallOption) (*ExpandResp, error)
+	Expand2(ctx context.Context, in *Expand2Req, opts ...grpc.CallOption) (*Expand2Resp, error)
 	Shorten(ctx context.Context, in *ShortenReq, opts ...grpc.CallOption) (*ShortenResp, error)
 }
 
@@ -381,6 +512,15 @@ func (c *transformerClient) Expand(ctx context.Context, in *ExpandReq, opts ...g
 	return out, nil
 }
 
+func (c *transformerClient) Expand2(ctx context.Context, in *Expand2Req, opts ...grpc.CallOption) (*Expand2Resp, error) {
+	out := new(Expand2Resp)
+	err := c.cc.Invoke(ctx, "/transform.transformer/expand2", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *transformerClient) Shorten(ctx context.Context, in *ShortenReq, opts ...grpc.CallOption) (*ShortenResp, error) {
 	out := new(ShortenResp)
 	err := c.cc.Invoke(ctx, "/transform.transformer/shorten", in, out, opts...)
@@ -393,6 +533,7 @@ func (c *transformerClient) Shorten(ctx context.Context, in *ShortenReq, opts ..
 // TransformerServer is the server API for Transformer service.
 type TransformerServer interface {
 	Expand(context.Context, *ExpandReq) (*ExpandResp, error)
+	Expand2(context.Context, *Expand2Req) (*Expand2Resp, error)
 	Shorten(context.Context, *ShortenReq) (*ShortenResp, error)
 }
 
@@ -402,6 +543,9 @@ type UnimplementedTransformerServer struct {
 
 func (*UnimplementedTransformerServer) Expand(context.Context, *ExpandReq) (*ExpandResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Expand not implemented")
+}
+func (*UnimplementedTransformerServer) Expand2(context.Context, *Expand2Req) (*Expand2Resp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Expand2 not implemented")
 }
 func (*UnimplementedTransformerServer) Shorten(context.Context, *ShortenReq) (*ShortenResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Shorten not implemented")
@@ -425,6 +569,24 @@ func _Transformer_Expand_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TransformerServer).Expand(ctx, req.(*ExpandReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Transformer_Expand2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Expand2Req)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransformerServer).Expand2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/transform.transformer/Expand2",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransformerServer).Expand2(ctx, req.(*Expand2Req))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -454,6 +616,10 @@ var _Transformer_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "expand",
 			Handler:    _Transformer_Expand_Handler,
+		},
+		{
+			MethodName: "expand2",
+			Handler:    _Transformer_Expand2_Handler,
 		},
 		{
 			MethodName: "shorten",
