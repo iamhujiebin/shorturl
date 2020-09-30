@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"github.com/tal-tech/go-zero/core/logx"
 	"net/http"
 
 	"shorturl/api/internal/logic"
@@ -11,7 +10,7 @@ import (
 	"github.com/tal-tech/go-zero/rest/httpx"
 )
 
-func expandHandler2Handler(ctx *svc.ServiceContext) http.HandlerFunc {
+func expand2Handler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req types.ExpandReq
 		if err := httpx.Parse(r, &req); err != nil {
@@ -19,9 +18,8 @@ func expandHandler2Handler(ctx *svc.ServiceContext) http.HandlerFunc {
 			return
 		}
 
-		l := logic.NewExpandHandler2Logic(r.Context(), ctx)
-		resp, err := l.ExpandHandler2(req)
-		logx.Infof("jwt payload:%v", r.Context().Value("jiebin"))
+		l := logic.NewExpand2Logic(r.Context(), ctx)
+		resp, err := l.Expand2(req)
 		if err != nil {
 			httpx.Error(w, err)
 		} else {

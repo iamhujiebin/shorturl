@@ -4,29 +4,30 @@ import (
 	"context"
 	"errors"
 	"github.com/tal-tech/go-zero/core/mr"
-	"shorturl/api/internal/svc"
-	"shorturl/api/internal/types"
 	"shorturl/rpc/transform/transformer"
 	"strconv"
+
+	"shorturl/api/internal/svc"
+	"shorturl/api/internal/types"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )
 
-type ExpandHandler2Logic struct {
+type Expand2Logic struct {
 	logx.Logger
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 }
 
-func NewExpandHandler2Logic(ctx context.Context, svcCtx *svc.ServiceContext) ExpandHandler2Logic {
-	return ExpandHandler2Logic{
+func NewExpand2Logic(ctx context.Context, svcCtx *svc.ServiceContext) Expand2Logic {
+	return Expand2Logic{
 		Logger: logx.WithContext(ctx),
 		ctx:    ctx,
 		svcCtx: svcCtx,
 	}
 }
 
-func (l *ExpandHandler2Logic) ExpandHandler2(req types.ExpandReq) (*types.ExpandResp, error) {
+func (l *Expand2Logic) Expand2(req types.ExpandReq) (*types.ExpandResp, error) {
 	err := mr.Finish(func() error {
 		return nil
 	}, func() error {

@@ -32,7 +32,7 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 		{
 			Method:  http.MethodGet,
 			Path:    "/expand2",
-			Handler: expandHandler2Handler(serverCtx),
+			Handler: expand2Handler(serverCtx),
 		},
 	}, rest.WithJwt(serverCtx.Config.JwtAuth.AccessSecret))
 }
