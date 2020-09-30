@@ -3,17 +3,17 @@ package svc
 import (
 	"github.com/tal-tech/go-zero/core/stores/sqlx"
 	"shorturl/rpc/transform/internal/config"
-	"shorturl/rpc/transform/model"
+	mysqlModel "shorturl/rpc/transform/model/mysql"
 )
 
 type ServiceContext struct {
 	c     config.Config
-	Model *model.ShorturlModel
+	Model *mysqlModel.ShorturlModel
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		c:     c,
-		Model: model.NewShorturlModel(sqlx.NewMysql(c.DataSource), c.Cache, c.Table),
+		Model: mysqlModel.NewShorturlModel(sqlx.NewMysql(c.DataSource), c.Cache, c.Table),
 	}
 }

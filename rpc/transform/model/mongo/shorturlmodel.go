@@ -1,4 +1,4 @@
-package model
+package mongo
 
 type ShortUrl struct {
 	Shorten string `o:"find,get,set,del" c:"短链"`
