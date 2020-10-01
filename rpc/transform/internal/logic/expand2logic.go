@@ -2,6 +2,7 @@ package logic
 
 import (
 	"context"
+	"shorturl/rpc/userservice/userservice"
 
 	"shorturl/rpc/transform/internal/svc"
 	transform "shorturl/rpc/transform/pb"
@@ -24,6 +25,13 @@ func NewExpand2Logic(ctx context.Context, svcCtx *svc.ServiceContext) *Expand2Lo
 }
 
 func (l *Expand2Logic) Expand2(in *transform.Expand2Req) (*transform.Expand2Resp, error) {
+	userInfo, err := l.svcCtx.UserService.GetUserInfo(l.ctx, &userservice.GetUserInfoReq{
+		UserId: 902853,
+	})
+	if err != nil {
+		return nil, err
+	}
+	logx.Infof("userInfo:%+v", userInfo)
 	res, err := l.svcCtx.MongoModel.FindOne(in.Shorten)
 	if err != nil {
 		return nil, err

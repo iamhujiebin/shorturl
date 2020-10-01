@@ -9,3 +9,9 @@ DataSource: jiebin:123456@tcp(localhost:3306)/gozero
 Table: shorturl
 Cache:
   - Host: localhost:6379
+
+UserService:
+  Etcd:
+    Hosts:
+      - localhost:2379
+    Key: /userservice.rpc
