@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package user_service;
+
+message UserInfo {
+  int64 user_id = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+message getUserInfoReq{
+  int64 user_id = 1;
+}
+
+message getUserInfoRes{
+  UserInfo userInfo = 1;
+}
+
+service userService {
+  rpc getUserInfo(getUserInfoReq) returns(getUserInfoRes);
+}

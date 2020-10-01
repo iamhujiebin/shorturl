@@ -2,11 +2,17 @@ Name: shorturl-api
 Host: 0.0.0.0
 Port: 8888
 
+UserService:
+  Etcd:
+    Hosts:
+      - localhost:2379
+    Key: /userservice.rpc
+
 Transform:
   Etcd:
     Hosts:
       - localhost:2379
-    Key: transform.rpc
+    Key: /transform.rpc
 
 Log:
   LogMode: console

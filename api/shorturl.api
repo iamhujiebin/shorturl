@@ -1,34 +1,53 @@
 type (
-    expandReq struct{
-        shorten string `form:"shorten"`
-    }
+	expandReq struct {
+		shorten string `form:"shorten"`
+	}
 
-    expandResp struct{
-        url string `json:"url"`
-    }
+	expandResp struct {
+		url string `json:"url"`
+	}
 )
 
 type (
-    shortenReq struct{
-        url string `form:"url"`
-    }
+	shortenReq struct {
+		url string `form:"url"`
+	}
 
-    shortenResp struct{
-        shorten string `json:"shorten"`
-    }
+	shortenResp struct {
+		shorten string `json:"shorten"`
+	}
 )
 
 type (
-    JwtTokenRequest struct{}
+	JwtTokenRequest struct{}
 
-    JwtTokenResponse struct{
-        AccessToken string `json:"access_token"`
-        AccessExpire int64 `json:"access_expire"`
-        RefreshAfter int64 `json:"refresh_after"` // 建议客户端刷新token的绝对时间
-    }
+	JwtTokenResponse struct {
+		AccessToken  string `json:"access_token"`
+		AccessExpire int64  `json:"access_expire"`
+		RefreshAfter int64  `json:"refresh_after"` // 建议客户端刷新token的绝对时间
+	}
+)
+
+type (
+	UserInfo struct {
+		UserId int64  `json:"user_id"`
+		Name   string `json:"name"`
+		Age    int32  `json:"age"`
+		Phone  string `json:"phone"`
+	}
+	UserFindReq struct {
+		UserId int64 `form:"user_id"`
+	}
+	UserFindRes struct {
+		UserInfo UserInfo `json:"user_info"`
+	}
 )
 
 service shorturl-api {
+    @server(
+        handler : UserFindHandler
+    )
+    get /user/find (UserFindReq) returns (UserFindRes)
     @server(
         handler: ShortenHandler
     )

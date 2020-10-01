@@ -10,6 +10,21 @@ type JwtTokenResponse struct {
 	RefreshAfter int64  `json:"refresh_after"` // 建议客户端刷新token的绝对时间
 }
 
+type UserFindReq struct {
+	UserId int64 `form:"user_id"`
+}
+
+type UserFindRes struct {
+	UserInfo UserInfo `json:"user_info"`
+}
+
+type UserInfo struct {
+	UserId int64  `json:"user_id"`
+	Name   string `json:"name"`
+	Age    int32  `json:"age"`
+	Phone  string `json:"phone"`
+}
+
 type ExpandReq struct {
 	Shorten string `form:"shorten"`
 }

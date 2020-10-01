@@ -13,6 +13,11 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 	engine.AddRoutes([]rest.Route{
 		{
 			Method:  http.MethodGet,
+			Path:    "/user/find",
+			Handler: userFindHandler(serverCtx),
+		},
+		{
+			Method:  http.MethodGet,
 			Path:    "/shorten",
 			Handler: shortenHandler(serverCtx),
 		},
