@@ -23,7 +23,7 @@ func main() {
 		{ClassId: 4},
 		{ClassId: 1},
 	}
-	result := make([]*ClassObj, 0)
+	result := make([]int, 0)
 	fx.From(func(source chan<- interface{}) {
 		for _, item := range data {
 			source <- item
@@ -44,10 +44,10 @@ func main() {
 	}).Sort(func(a, b interface{}) bool {
 		a1, b1 := a.(*ClassObj), b.(*ClassObj)
 		return a1.ClassId > b1.ClassId
-	}).ForEach(func(item interface{}) {
+	}).Tail(10).ForEach(func(item interface{}) {
 		o := item.(*ClassObj)
 		//result[o.ClassId] = o.StudentIds
-		result = append(result, o)
+		result = append(result, o.ClassId)
 	})
 	fmt.Printf("data:%+v", result)
 }
