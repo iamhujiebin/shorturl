@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+//同一时间内获取的key，只有一个协程去操作计算
 func main() {
 	const round = 5
 	barrier := syncx.NewSharedCalls() //进程内共享调用,注意不是协程内，因为是多个协程同一时间内，拿到相同的返回
