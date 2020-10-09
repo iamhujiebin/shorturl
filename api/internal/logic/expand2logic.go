@@ -6,6 +6,7 @@ import (
 	"github.com/tal-tech/go-zero/core/mr"
 	"shorturl/rpc/transform/transformer"
 	"strconv"
+	"time"
 
 	"shorturl/api/internal/svc"
 	"shorturl/api/internal/types"
@@ -28,6 +29,7 @@ func NewExpand2Logic(ctx context.Context, svcCtx *svc.ServiceContext) Expand2Log
 }
 
 func (l *Expand2Logic) Expand2(req types.ExpandReq) (*types.ExpandResp, error) {
+	start := time.Now()
 	err := mr.Finish(func() error {
 		return nil
 	}, func() error {
@@ -75,6 +77,8 @@ func (l *Expand2Logic) Expand2(req types.ExpandReq) (*types.ExpandResp, error) {
 	if err != nil {
 		return nil, err
 	}
+	time.Sleep(time.Millisecond * 100)
+	logx.WithDuration(time.Now().Sub(start)).Slowf("may by slow log")
 	return &types.ExpandResp{
 		Url: resp.Url,
 	}, nil

@@ -21,10 +21,14 @@ func main() {
 	conf.MustLoad(*configFile, &c)
 
 	logConf := logx.LogConf{
-		Mode: c.Log.LogMode,
-		Path: c.Log.Path,
+		Mode:     c.Log.LogMode,
+		Path:     c.Log.Path,
+		KeepDays: c.Log.KeepDays,
 	}
 	logx.MustSetup(logConf)
+	if c.Log.Close {
+		_ = logx.Close()
+	}
 
 	ctx := svc.NewServiceContext(c)
 	server := rest.MustNewServer(c.RestConf)

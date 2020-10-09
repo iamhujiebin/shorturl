@@ -17,6 +17,8 @@ Transform:
 Log:
   LogMode: console
   Path: ./logs
+  Close: false # 当LogMode是file才有效，Close后，会把日志输出到console
+  KeepDays: 365 #当LogMode在是file才有效
 
 JwtAuth:
   AccessSecret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx

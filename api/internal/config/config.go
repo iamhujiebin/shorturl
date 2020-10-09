@@ -10,8 +10,10 @@ type Config struct {
 	Transform   zrpc.RpcClientConf
 	UserService zrpc.RpcClientConf
 	Log         struct {
-		LogMode string
-		Path    string
+		LogMode  string
+		Path     string
+		KeepDays int
+		Close    bool
 	}
 	JwtAuth struct {
 		AccessSecret string
