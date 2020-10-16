@@ -17,6 +17,6 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		Config:      c,
 		Transformer: transformer.NewTransformer(zrpc.MustNewClient(c.Transform)),
-		//UserService: userservice.NewUserService(zrpc.MustNewClient(c.UserService)),
+		UserService: userservice.NewUserService(zrpc.MustNewClient(c.UserService)),
 	}
 }
