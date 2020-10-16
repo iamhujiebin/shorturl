@@ -2,16 +2,16 @@ Name: transform.rpc
 ListenOn: 127.0.0.1:8899
 Etcd:
   Hosts:
-    - 127.0.0.1:2379
+    - 10.1.64.37:2379
   Key: /transform.rpc
 
 DataSource: jiebin:123456@tcp(localhost:3306)/gozero
 Table: shorturl
 Cache:
-  - Host: localhost:6379
+  - Host: 10.1.64.37:6379
 
-UserService:
-  Etcd:
-    Hosts:
-      - localhost:2379
-    Key: /userservice.rpc
+#UserService:
+#  Etcd:
+#    Hosts:
+#      - 10.1.64.37:2379
+#    Key: /userservice.rpc

@@ -7,7 +7,7 @@ import (
 
 type Config struct {
 	zrpc.RpcServerConf
-	UserService zrpc.RpcClientConf
+	//UserService zrpc.RpcClientConf
 	DataSource  string
 	Table       string
 	Cache       cache.CacheConf

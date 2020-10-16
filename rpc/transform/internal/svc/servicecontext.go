@@ -2,7 +2,6 @@ package svc
 
 import (
 	"github.com/tal-tech/go-zero/core/stores/sqlx"
-	"github.com/tal-tech/go-zero/zrpc"
 	"shorturl/rpc/transform/internal/config"
 	mongoModel "shorturl/rpc/transform/model/mongo"
 	mysqlModel "shorturl/rpc/transform/model/mysql"
@@ -18,9 +17,9 @@ type ServiceContext struct {
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
-		c:           c,
-		UserService: userservice.NewUserService(zrpc.MustNewClient(c.UserService)),
-		Model:       mysqlModel.NewShorturlModel(sqlx.NewMysql(c.DataSource), c.Cache, c.Table),
-		MongoModel:  &mongoModel.ShortUrlModel{},
+		c: c,
+		//UserService: userservice.NewUserService(zrpc.MustNewClient(c.UserService)),
+		Model:      mysqlModel.NewShorturlModel(sqlx.NewMysql(c.DataSource), c.Cache, c.Table),
+		MongoModel: &mongoModel.ShortUrlModel{},
 	}
 }

@@ -8,7 +8,7 @@ import (
 type Config struct {
 	rest.RestConf
 	Transform   zrpc.RpcClientConf
-	UserService zrpc.RpcClientConf
+	//UserService zrpc.RpcClientConf
 	Log         struct {
 		LogMode  string
 		Path     string
